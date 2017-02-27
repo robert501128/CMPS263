@@ -17,6 +17,8 @@
   - [Cleaner Cars from cradle to grave] (http://www.ucsusa.org/sites/default/files/attach/2015/11/Cleaner-Cars-from-Cradle-to-Grave-full-report.pdf)
   - [Comparative Environmental Life Cycle Assessment of Conventional and Electric Vehicles](http://onlinelibrary.wiley.com/doi/10.1111/j.1530-9290.2012.00532.x/full)
   - [How much less eletric cars produce carbon pollution than gas cars](http://www.ucsusa.org/clean-vehicles/electric-vehicles/ev-emissions-tool#z/95060/2016/Kia/Soul Electric)
+  - [Electric Cars’ Carbon Emissions Around the Globe](http://shrinkthatfootprint.com/electric-car-emissions)
   
+
 7. Stock or Sales
   - Gloval_EV_outlook_2016.pdf
