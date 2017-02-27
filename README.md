@@ -12,6 +12,7 @@
 4. Policy for each government
   - [Government Incentives for plug-in electric vehicles] (https://en.wikipedia.org/wiki/Government_incentives_for_plug-in_electric_vehicles)
 5. Vehicles life
+  - [Tesla Roadster Battery Survey] (https://survey.pluginamerica.org/tesla-roadster/results.php)
 6. Environmental Issue
   - [Fuel Economy] (http://www.fueleconomy.gov/feg/findacar.shtml)
   - [Alternative Fuel Data Center] (http://www.afdc.energy.gov/data_download/)
