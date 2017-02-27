@@ -3,6 +3,7 @@
 1. Vehicles information
   - [Fuel Economy] (http://www.fueleconomy.gov/feg/findacar.shtml)
   - [Alternative Fuel Data Center] (http://www.afdc.energy.gov/data_download/)
+  - [Fuel Economy Downloadable data] (https://www.fueleconomy.gov/feg/download.shtml)
 2. Vehicles Price
 3. Charging Station
   - [Alternative Fuel Data Center] (http://www.afdc.energy.gov/data_download/)
