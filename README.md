@@ -5,6 +5,7 @@
   - [Alternative Fuel Data Center] (http://www.afdc.energy.gov/data_download/)
   - [Fuel Economy Downloadable data] (https://www.fueleconomy.gov/feg/download.shtml)
 2. Vehicles Price
+ - [electricity price] (http://www.eia.gov/electricity/state/)
 3. Charging Station
   - [Alternative Fuel Data Center] (http://www.afdc.energy.gov/data_download/)
   - [Alternative Fuel Station (data.gov)] (https://catalog.data.gov/dataset/alternative-fueling-station-locations-b550c)
