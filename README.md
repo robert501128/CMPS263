@@ -24,3 +24,6 @@
 
 7. Stock or Sales
   - Gloval_EV_outlook_2016.pdf
+  - [Wiki: Electric Cars Used by Countries](https://en.wikipedia.org/wiki/Electric_car_use_by_country)
+## Reference
+1. [pdfminer function] (https://www.binpress.com/tutorial/manipulating-pdfs-with-python/167)
