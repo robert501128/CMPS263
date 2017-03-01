@@ -13,6 +13,40 @@ def to_int(s):
     return num
 
 
+def findD2():
+    page = urllib2.urlopen('http://www.eia.gov/electricity/state/').read()
+    soup = BeautifulSoup(page, 'lxml')
+    # print(soup.prettify())
+    data = []
+    table = soup.find(lambda tag: tag.name == 'table')
+    table_body = table.find('tbody')
+    rows = table_body.find_all('tr')
+    for row in rows:
+        cols = row.find_all('td')
+        cols = [ele.text.strip() for ele in cols]
+        data.append([ele for ele in cols if ele])
+    return data
+
+
+def findD4():
+    age = urllib2.urlopen('https://en.wikipedia.org/wiki/Government_incentives_for_plug-in_electric_vehicles').read()
+    soup = BeautifulSoup(page, 'lxml')
+    # print(soup.prettify())
+    data = []
+    table = soup.find('table', {'class': 'wikitable'})
+    # pprint.pprint(table)
+    # table_body = table.find('tbody')
+    # pprint.pprint(table_body)
+    # rows = table_body.find_all('tr')
+    rows = table.findAll(lambda tag: tag.name == 'tr')
+    # pprint.pprint(rows)
+    for row in rows:
+        cols = row.find_all('td')
+        cols = [ele.text.strip() for ele in cols]
+        data.append([ele for ele in cols if ele])
+    return data
+
+
 def findD7():
     f = urllib2.urlopen("https://en.wikipedia.org/wiki/Electric_car_use_by_country")
     soup = BeautifulSoup(f.read(), 'html.parser').find_all('table')
@@ -43,12 +77,16 @@ def findD7():
     return d7_dict
 
 d1 = pd.read_csv('data/1_vehicles.csv', low_memory=False)
+d2 = pd.DataFrame(findD2())
 d3 = pd.read_csv('data/3_alt_fuel_stations.csv', low_memory=False)
+d4 = pd.DataFrame(findD4())
 d5 = pd.read_csv('data/5_roadster-survey-reports.csv', sep='\t')
 d7 = pd.DataFrame(data=findD7())
 
 pd.to_pickle(d1, 'd1.pkl')
+pd.to_pickle(d2, 'd2.pkl')
 pd.to_pickle(d3, 'd3.pkl')
+pd.to_pickle(d4, 'd4.pkl')
 pd.to_pickle(d5, 'd5.pkl')
 pd.to_pickle(d7, 'd7.pkl')
 
