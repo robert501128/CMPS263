@@ -26,5 +26,17 @@
   - Gloval_EV_outlook_2016.pdf
   - [Wiki: Electric Cars Used by Countries](https://en.wikipedia.org/wiki/Electric_car_use_by_country)
 
+## data
+1. annual emissions per vehicle
+  - All electric: 4587 pounds of CO2 equivalent
+  - Gasoline: 11435 pounds of CO2 equivalent 
+  - [resource] (http://www.afdc.energy.gov/vehicles/electric_emissions.php#wheel)
+2. Electric cars percentage in 2014
+  - Number of registered cars in the U.S.A., 2014: 260350 (resource)
+  - Number of registered electric cars in the U.S.A., 2014: 139.29 (resource: Global_EV_outlook.pdf Table 9)
+  - percentage: 139.29/260350 is about 0%
+3. CO2 emissions for each state
+  - [resource] (https://www.eia.gov/environment/emissions/state/analysis/pdf/table3.pdf)  
+
 ## Reference
 1. [pdfminer function] (https://www.binpress.com/tutorial/manipulating-pdfs-with-python/167)
