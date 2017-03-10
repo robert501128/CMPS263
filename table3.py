@@ -1,4 +1,5 @@
 from pdftables import get_tables
+import json
 all_tables = get_tables(open('table3.pdf', 'rb'))
 #print all_tables
 #headers = ['electrical power','transportation']
@@ -24,8 +25,13 @@ for row in rows1 + rows2:
 	dataObj['total'] = float(row[6].encode("ascii"))*1000000
 	data.append(dataObj)
 
-res = {}
+countryList = list()
 for i in range(0, len(countries)):
-	res[countries[i]] = data[i]
-print res
+	countryList.append(countries[i])
 
+femit = open("stateEmission.json", "w")
+femit.write("stateEmission = '"+json.dumps(data)+"';")
+femit.close()
+fstate = open("stateList.json", "w")
+fstate.write("stateList = '"+json.dumps(countryList)+"';")
+fstate.close()
