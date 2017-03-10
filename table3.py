@@ -16,8 +16,12 @@ for row in rows1 + rows2:
 		continue;
 	countries.append(row[0].encode("ascii"))
 	dataObj = {}
-	dataObj['electrical power'] = row[2].encode("ascii")
-	dataObj['transportation'] = row[5].encode("ascii")
+	dataObj['commercial'] = float(row[1].encode("ascii"))*1000000
+	dataObj['electrical power'] = float(row[2].encode("ascii"))*1000000
+	dataObj['residential'] = float(row[3].encode("ascii"))*1000000
+	dataObj['industrial'] = float(row[4].encode("ascii"))*1000000
+	dataObj['transportation'] = float(row[5].encode("ascii"))*1000000
+	dataObj['total'] = float(row[6].encode("ascii"))*1000000
 	data.append(dataObj)
 
 res = {}

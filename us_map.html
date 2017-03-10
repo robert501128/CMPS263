@@ -1,20 +1,65 @@
 <html>
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="stateEmission.json"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['geochart']});
       google.charts.setOnLoadCallback(drawRegionsMap);
-
+      var mydata = JSON.parse(data);
       function drawRegionsMap() {
 
         var data = google.visualization.arrayToDataTable([
-          ['State', 'Popularity'],
-          ['CA', 200],
-				  ['MI', 100],
-					['FL', 200],
-					['MD', 2000],
-					['MA', 2000],
-          ['NY', 400],
+          ['State', 'CO2 Emission'],
+          ['California', mydata["California"]["total"]],
+				  ['Mississippi', mydata["Mississippi"]["total"]],
+					['Florida', mydata["Florida"]["total"]],
+					['Maryland', mydata["Maryland"]["total"]],
+					['Massachusetts', mydata["Massachusetts"]["total"]],
+          ['New York', mydata["New York"]["total"]],
+          ["Oklahoma", mydata["Oklahoma"]["total"]],
+          ["Delaware", mydata["Delaware"]["total"]],
+          ["Minnesota", mydata["Minnesota"]["total"]],
+          ["Illinois", mydata["Illinois"]["total"]],
+          ["Arkansas", mydata["Arkansas"]["total"]],
+          ["New Mexico", mydata["New Mexico"]["total"]],
+          ["Indiana", mydata["Indiana"]["total"]],
+          ["Louisiana", mydata["Louisiana"]["total"]],
+          ["Idaho", mydata["Idaho"]["total"]],
+          ["Wyoming", mydata["Wyoming"]["total"]],
+          ["Tennessee", mydata["Tennessee"]["total"]],
+          ["Arizona", mydata["Arizona"]["total"]],
+          ["Iowa", mydata["Iowa"]["total"]],
+          ["Michigan", mydata["Michigan"]["total"]],
+          ["Kansas", mydata["Kansas"]["total"]],
+          ["Utah", mydata["Utah"]["total"]],
+          ["Virginia", mydata["Virginia"]["total"]],
+          ["Oregon", mydata["Oregon"]["total"]],
+          ["Connecticut", mydata["Connecticut"]["total"]],
+          ["Montana", mydata["Montana"]["total"]],
+          ["West Virginia", mydata["West Virginia"]["total"]],
+          ["South Carolina", mydata["South Carolina"]["total"]],
+          ["New Hampshire", mydata["New Hampshire"]["total"]],
+          ["Wisconsin", mydata["Wisconsin"]["total"]],
+          ["Vermont", mydata["Vermont"]["total"]],
+          ["Georgia", mydata["Georgia"]["total"]],
+          ["North Dakota", mydata["North Dakota"]["total"]],
+          ["Pennsylvania", mydata["Pennsylvania"]["total"]],
+          ["Alaska", mydata["Alaska"]["total"]],
+          ["Kentucky", mydata["Kentucky"]["total"]],
+          ["Hawaii", mydata["Hawaii"]["total"]],
+          ["Nebraska", mydata["Nebraska"]["total"]],
+          ["Missouri", mydata["Missouri"]["total"]],
+          ["Ohio", mydata["Ohio"]["total"]],
+          ["Alabama", mydata["Alabama"]["total"]],
+          ["South Dakota", mydata["South Dakota"]["total"]],
+          ["Colorado", mydata["Colorado"]["total"]],
+          ["New Jersey", mydata["New Jersey"]["total"]],
+          ["Washington", mydata["Washington"]["total"]],
+          ["North Carolina", mydata["North Carolina"]["total"]],
+          ["Texas", mydata["Texas"]["total"]],
+          ["Nevada", mydata["Nevada"]["total"]],
+          ["Maine", mydata["Maine"]["total"]],
+          ["Rhode Island", mydata["Rhode Island"]["total"]],
         ]);
 
         var options = {
