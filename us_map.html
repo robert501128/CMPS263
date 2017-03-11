@@ -33,7 +33,7 @@
         var table = [['State', 'CO2 Emission']];
         for(i = 0; i < stateList.length; i++){
           var emission = stateEmission[i]['transportation'];
-          emission += numEV/100 * totalTransport * stateEmission[i]['electrical power']/totalPowerPlant;
+          emission += 4587/11435*numEV/100 * totalTransport * stateEmission[i]['electrical power']/totalPowerPlant;
           emission -= numEV/100 * totalTransport * stateEmission[i]['transportation']/totalTransport;
           table.push([stateList[i], emission]);
         }
