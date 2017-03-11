@@ -39,14 +39,11 @@
           table.push([stateList[i], emission]);
         }
         var data = google.visualization.arrayToDataTable(table);
-
+        var m = 1000000;
         var options = {
           region: 'US',
         //displayMode: 'regions',
-           //colorAxis: {values:[0, 10], colors:['red', 'red'],
-                    //values:[11, 20], colors:['yellow', 'yellow'],
-                    //values:[21, 30], colors:['green', 'green']}
-          
+          values:[10*m, 20*m, 30*m, 40*m, 50*m, 60*m,90*m,120*m,150*m,180*m,210*m,240*m], colors:['#006600','#009900','#00cc00','#73e600','#99ff33','#ccff33', '#ffff66','#ffd966','#ffb366','#ff8c66','#ff6666','#ff0000'],
           resolution: 'provinces',
         };
 
