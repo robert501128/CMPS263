@@ -14,7 +14,7 @@
       var numEV=0;
       function showValue(newValue)
       {
-      	document.getElementById("range").innerHTML=newValue;
+        document.getElementById("range").innerHTML=newValue;
         numEV=newValue;
         drawRegionsMap();
       }
@@ -33,9 +33,8 @@
         var table = [['State', 'CO2 Emission']];
         for(i = 0; i < stateList.length; i++){
           var emission = stateEmission[i]['transportation'];
-          var evTotal = numEV/100*(260350.94*1000);
-          emission += 4587*evTotal* stateEmission[i]['electrical power']/totalPowerPlant;
-          emission -= 11435*evTotal * stateEmission[i]['transportation']/totalTransport;
+          emission += 4587/11435*numEV/100 * totalTransport * stateEmission[i]['electrical power']/totalPowerPlant;
+          emission -= numEV/100 * totalTransport * stateEmission[i]['transportation']/totalTransport;
           table.push([stateList[i], emission]);
         }
         var data = google.visualization.arrayToDataTable(table);
@@ -43,12 +42,15 @@
         var options = {
           region: 'US',
         //displayMode: 'regions',
+        resolution: 'provinces',
+         colorAxis: {
           values:[10*m, 20*m, 30*m, 40*m, 50*m, 60*m,90*m,120*m,150*m,180*m,210*m,240*m], colors:['#006600','#009900','#00cc00','#73e600','#99ff33','#ccff33', '#ffff66','#ffd966','#ffb366','#ff8c66','#ff6666','#ff0000'],
-          resolution: 'provinces',
+                 
+                }
+          
+          
         };
-
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-
         chart.draw(data, options);
       }
     </script>
