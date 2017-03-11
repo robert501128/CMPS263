@@ -32,9 +32,9 @@
       function drawRegionsMap() {
         var table = [['State', 'CO2 Emission']];
         for(i = 0; i < stateList.length; i++){
-          var emission = 0;
-          emission += 260350*numEV/100*4587.0* stateEmission[i]['transportation']/totalTransport * 1/2204.6226218;
-          emission += (260350*(100-numEV)/100)*11435.0* stateEmission[i]['transportation']/totalTransport * 1/2204.6226218;
+          var emission = stateEmission[i]['transportation'] + stateEmission[i]['electrical power'];
+          emission += numEV/100 * totalTransport * stateEmission[i]['electrical power']/totalPowerPlant;
+          emission -= (numEV)/100 * totalTransport * stateEmission[i]['transportation']/totalTransport;
           table.push([stateList[i], emission]);
         }
         var data = google.visualization.arrayToDataTable(table);
