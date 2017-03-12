@@ -3,12 +3,18 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="stateEmission.json"></script>
     <script type="text/javascript" src="stateList.json"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
-  <body>
-    <div id="regions_div" style="width: 900px; height: 500px;"></div>
+  <body style="text-align:center;">
+    <div class="container">
+    <div id="regions_div" style="width: 900px; height: 500px; text-align:center;"></div>
     <h1>Change electrical car number:</h1>
-    <input type="range" min="0" max="100" value="0" onchange="showValue(this.value)" style="width:500px;"/>
+    <input type="range" min="0" max="100" value="0" onchange="showValue(this.value)" style="width:500px; text-align:center;"/>
     <div id="range">0</div>
+    </div>
   </body>
   <script type="text/javascript">
       var numEV=0;
@@ -33,8 +39,8 @@
         var table = [['State', 'CO2 Emission']];
         for(i = 0; i < stateList.length; i++){
           var emission = stateEmission[i]['transportation'];
-          emission += 4587/11435*numEV/100 * totalTransport * stateEmission[i]['electrical power']/totalPowerPlant;
-          emission -= numEV/100 * totalTransport * stateEmission[i]['transportation']/totalTransport;
+          emission += 4587*0.00045359237*numEV/100 * 260350 * 1000 * stateEmission[i]['electrical power']/totalPowerPlant;
+          emission -= 11435*0.00045359237*numEV/100 * 260350 * 1000 * stateEmission[i]['transportation']/totalTransport;
           table.push([stateList[i], emission]);
         }
         var data = google.visualization.arrayToDataTable(table);
@@ -44,7 +50,7 @@
         //displayMode: 'regions',
         resolution: 'provinces',
          colorAxis: {
-          values:[10*m, 20*m, 30*m, 40*m, 50*m, 60*m,90*m,120*m,150*m,180*m,210*m,240*m], colors:['#006600','#009900','#00cc00','#73e600','#99ff33','#ccff33', '#ffff66','#ffd966','#ffb366','#ff8c66','#ff6666','#ff0000'],
+          values:[m, 10*m, 20*m, 30*m, 40*m, 50*m, 60*m,90*m,120*m,150*m,180*m,210*m,240*m], colors:['#227700','#006600','#009900','#00cc00','#73e600','#99ff33','#ccff33', '#ffff66','#ffd966','#ffb366','#ff8c66','#ff6666','#ff0000'],
                  
                 }
           
