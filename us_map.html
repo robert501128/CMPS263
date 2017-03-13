@@ -60,10 +60,14 @@
       {
         document.getElementById("range").innerHTML=newValue + '%';
         numEV=newValue;
-        if(isEmit)
+        if(isEmit){
           drawRegionsMap();
-        else
+          isEmit = 0;
+        }
+        else{
           drawCostMap();
+          isEmit = 1;
+        }
 
       }
       google.charts.load('current', {'packages':['geochart']});
