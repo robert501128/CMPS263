@@ -37,6 +37,7 @@
   - percentage: 139.29/260350 is about 0%
 3. CO2 emissions for each state
   - [resource] (https://www.eia.gov/environment/emissions/state/analysis/pdf/table3.pdf)  
-
+4. EV benefits & damage
+  - [resource] (http://www.dartmouth.edu/~mansur/papers/Holland_Mansur_Muller_Yates_ElecCarSubsidy.pdf)
 ## Reference
 1. [pdfminer function] (https://www.binpress.com/tutorial/manipulating-pdfs-with-python/167)
