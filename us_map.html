@@ -23,7 +23,7 @@
     </div>
     <div class = "button">
       <ul class="nav nav-pills">
-        <li role="presentation" onclick = "showValue(this.value)"><a href="#">change EV number(metric: metric tons)</a></li>
+        <li role="presentation" onclick = "showReg()"><a href="#">change EV number(metric: metric tons)</a></li>
         <li role="presentation"  onclick = "showPic()"><a href="#">CO2 cost(metric: US dollars)</a></li>
       </ul>
 
@@ -52,6 +52,9 @@
       var numEV=0;
       function showPic(){
         drawCostMap();
+      }
+      function showReg(){
+        drawRegionsMap();
       }
       function showValue(newValue)
       {
