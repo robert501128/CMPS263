@@ -23,8 +23,8 @@
     </div>
     <div class = "button">
       <ul class="nav nav-pills">
-        <li role="presentation" onclick = "showValue(this.value)"><a href="#">change EV number</a></li>
-        <li role="presentation"  onclick = "showPic()"><a href="#">CO2 cost</a></li>
+        <li role="presentation" onclick = "showValue(this.value)"><a href="#">change EV number(metric: metric tons)</a></li>
+        <li role="presentation"  onclick = "showPic()"><a href="#">CO2 cost(metric: US dollars)</a></li>
       </ul>
 
     <div>
@@ -52,16 +52,16 @@
       var numEV=0;
       function showPic(){
         drawCostMap();
-        document.getElementById('emission_div').style.display='none';
-        document.getElementById('cost_div').style.display='';
       }
       function showValue(newValue)
       {
         document.getElementById("range").innerHTML=newValue + '%';
         numEV=newValue;
-        drawRegionsMap();
-        document.getElementById('cost_div').style.display='none';
-        document.getElementById('emission_div').style.display='';
+        if(isEmit)
+          drawRegionsMap();
+        else
+          drawCostMap();
+
       }
       google.charts.load('current', {'packages':['geochart']});
       google.charts.setOnLoadCallback(drawRegionsMap);
@@ -74,7 +74,9 @@
           totalTransport += stateEmission[i]['transportation'];
           totalPowerPlant += stateEmission[i]['electrical power'];
         }
+      isEmit=1;
       function drawRegionsMap() {
+        isEmit=1;
         var table = [['State', 'CO2 Emission']];
         for(i = 0; i < stateList.length; i++){
           var emission = stateEmission[i]['transportation'];
@@ -99,23 +101,23 @@
       }
 
       function drawCostMap(){
-        console.log('aaaa');
+        isEmit=0;
         var table = [['State','CO2 Cost']];
         for(i = 0; i < stateList.length; i++){          
-          var emission = 11435*0.00045359237* 260350 * 1000 * stateEmission[i]['transportation']/totalTransport - 4587*0.00045359237*numEV/100 * 260350 * 1000 * stateEmission[i]['electrical power']/totalPowerPlant;
-          var cost = 23.02* emission * 0.0005;
+          var emission = 11435*0.00045359237*numEV/100*260350 * 1000 * stateEmission[i]['transportation']/totalTransport - 
+          4587*0.00045359237*numEV/100 * 260350 * 1000 * stateEmission[i]['electrical power']/totalPowerPlant;
+          var cost = 23.02* emission * 1.10231131092;
           table.push([stateList[i], cost]);
-          var data = google.visualization.arrayToDataTable(table);
+        }
+        var data = google.visualization.arrayToDataTable(table);
           var options = {
           region: 'US',
           backgroundColor: '#81d4fa',
           resolution: 'provinces',
-          colorAxis: {colors: ['white', 'blue']}
-           
+          colorAxis: {colors: ['white', 'blue']} 
         };
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
         chart.draw(data, options);
-        }
       }
     </script>
 
