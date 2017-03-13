@@ -105,18 +105,17 @@
           var emission = 11435*0.00045359237* 260350 * 1000 * stateEmission[i]['transportation']/totalTransport - 4587*0.00045359237*numEV/100 * 260350 * 1000 * stateEmission[i]['electrical power']/totalPowerPlant;
           var cost = 23.02* emission * 0.0005;
           table.push([stateList[i], cost]);
-          var data = google.visualization.arrayToDataTable(table);
-          var options = {
-          region: 'US',
-          backgroundColor: '#81d4fa',
-          resolution: 'provinces',
-          colorAxis: {colors: ['white', 'blue']}
-           
+        }
+        var data = google.visualization.arrayToDataTable(table);
+        var options = {
+        region: 'US',
+        backgroundColor: '#81d4fa',
+        resolution: 'provinces',
+        colorAxis: {colors: ['white', 'blue']}
         };
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
         chart.draw(data, options);
         }
-      }
     </script>
 
 </html>
