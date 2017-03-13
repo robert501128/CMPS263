@@ -102,7 +102,7 @@
         console.log('aaaa');
         var table = [['State','CO2 Cost']];
         for(i = 0; i < stateList.length; i++){          
-          var emission = 11435*0.00045359237* 260350 * 1000 * stateEmission[i]['transportation']/totalTransport - 4587*0.00045359237*numEV/100 * 260350 * 1000 * stateEmission[i]['electrical power']/totalPowerPlant;
+          var emission = 11435*0.00045359237* 260350 * 1000 * stateEmission[i]['transportation']/totalTransport - 4587*0.00045359237 * 260350 * 1000 * stateEmission[i]['electrical power']/totalPowerPlant;
           var cost = 23.02* emission * 0.0005;
           table.push([stateList[i], cost]);
           var data = google.visualization.arrayToDataTable(table);
