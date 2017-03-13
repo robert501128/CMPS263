@@ -112,7 +112,7 @@
           var emission = 11435*0.00045359237*numEV/100*260350 * 1000 * stateEmission[i]['transportation']/totalTransport - 
           4587*0.00045359237*numEV/100 * 260350 * 1000 * stateEmission[i]['electrical power']/totalPowerPlant;
           var cost = 23.02* emission * 1.10231131092;
-          table.push([stateList[i], cost]);
+          table.push([stateList[i], Math.floor(cost)]);
         }
         var data = google.visualization.arrayToDataTable(table);
           var options = {
