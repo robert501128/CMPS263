@@ -55,8 +55,12 @@
       {
         document.getElementById("range").innerHTML=newValue + '%';
         numEV=newValue;
-        drawRegionsMap();
+        if(isEmit)
+          drawRegionsMap();
+        else
+          drawCostMap();
       }
+      isEmit=1;
       google.charts.load('current', {'packages':['geochart']});
       google.charts.setOnLoadCallback(drawRegionsMap);
       var stateEmission = JSON.parse(stateEmission);
@@ -69,6 +73,7 @@
           totalPowerPlant += stateEmission[i]['electrical power'];
         }
       function drawRegionsMap() {
+        isEmit=1;
         var table = [['State', 'CO2 Emission']];
         for(i = 0; i < stateList.length; i++){
           var emission = stateEmission[i]['transportation'];
@@ -93,6 +98,7 @@
       }
 
       function drawCostMap(){
+        isEmit=0;
         console.log('aaaa');
         var table = [['State','CO2 Cost']];
         for(i = 0; i < stateList.length; i++){          
