@@ -21,16 +21,36 @@
         <h1> How would electric vehicles change the U.S.A.? </h1>
         </div>
     </div>
-    <div id="regions_div" style="width: 900px; height: 500px; text-align:center; margin: auto;"></div>
-    <div style="color:#629FD4"><h1>change electric vehicle percentage</h1><br></div>
+    <div class = "button">
+      <ul class="nav nav-pills">
+        <li role="presentation" onclick = "showValue(this.value)"><a href="#">change EV number</a></li>
+        <li role="presentation"  onclick = "showPic()"><a href="#">CO2 cost</a></li>
+      </ul>
+
+    <div>
+       
+
+
+
+    <div id="regions_div" style="width: 900px; height: 500px; text-align:center; margin: auto;">
+     
+    </div>
+    <div id= "changeEV" style="color:#629FD4"><h1>change electric vehicle percentage</h1><br></div>
+
     <input type="range" min="0" max="100" value="0" onchange="showValue(this.value)" style="width:500px; margin: auto;"/>
     
     <h3><div id="range">0%</div></h3>
     <h4>electric vehicles/total vehicles</h4>
     </div>
+
+    <div id = "CO2cost" style="color:#629FD4"><h1>The CO2 Cost</h1><br></div>
+    </div>
   </body>
   <script type="text/javascript">
       var numEV=0;
+      function showPic(){
+        drawCostMap();
+      }
       function showValue(newValue)
       {
         document.getElementById("range").innerHTML=newValue + '%';
@@ -66,13 +86,32 @@
          colorAxis: {
           values:[5*m, 10*m, 15*m, 20*m, 25*m, 30*m, 40*m, 50*m, 60*m,90*m,120*m,150*m,180*m,210*m,240*m], colors:['#006600','#009900','#33cc33','#00cc00','#73e600','#99ff33','#ccff33', '#dfff80','#ffff66','#ffd966','#ffcc66','#ffb366','#ff8533','#ff661a','#ff3300'],
                  
-                }
-          
-          
+                }         
         };
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
         chart.draw(data, options);
       }
+
+      function drawCostMap(){
+        console.log('aaaa');
+        var table = [['State','CO2 Cost']];
+        for(i = 0; i < stateList.length; i++){          
+          var emission = 11435*0.00045359237* 260350 * 1000 * stateEmission[i]['transportation']/totalTransport - 4587*0.00045359237*numEV/100 * 260350 * 1000 * stateEmission[i]['electrical power']/totalPowerPlant;
+          var cost = 23.02* emission * 0.0005;
+          table.push([stateList[i], cost]);
+          var data = google.visualization.arrayToDataTable(table);
+          var options = {
+          region: 'US',
+          backgroundColor: '#81d4fa',
+          resolution: 'provinces',
+          colorAxis: {colors: ['white', 'blue']}
+           
+        };
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+        chart.draw(data, options);
+        }
+      }
     </script>
 
 </html>
+
