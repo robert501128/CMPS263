@@ -7,20 +7,33 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <style type="text/css">
+        div.jumbotron { 
+        background-color: #629FD4; 
+        color: #ffffff;
+        }
+    </style>
   </head>
   <body style="text-align:center;">
     <div class="container">
-    <div id="regions_div" style="width: 900px; height: 500px; text-align:center;"></div>
-    <h1>Change electrical car number:</h1>
-    <input type="range" min="0" max="100" value="0" onchange="showValue(this.value)" style="width:500px; text-align:center;"/>
-    <div id="range">0</div>
+    <div class="jumbotron text-center">
+        <div class="page-header">
+        <h1> How would electric vehicles change the U.S.A.? </h1>
+        </div>
+    </div>
+    <div id="regions_div" style="width: 900px; height: 500px; text-align:center; margin: auto;"></div>
+    <div style="color:#629FD4"><h1>change electric vehicle percentage</h1><br></div>
+    <input type="range" min="0" max="100" value="0" onchange="showValue(this.value)" style="width:500px; margin: auto;"/>
+    
+    <h3><div id="range">0%</div></h3>
+    <h4>electric vehicles/total vehicles</h4>
     </div>
   </body>
   <script type="text/javascript">
       var numEV=0;
       function showValue(newValue)
       {
-        document.getElementById("range").innerHTML=newValue;
+        document.getElementById("range").innerHTML=newValue + '%';
         numEV=newValue;
         drawRegionsMap();
       }
@@ -47,10 +60,11 @@
         var m = 1000000;
         var options = {
           region: 'US',
+          backgroundColor: '#81d4fa',
         //displayMode: 'regions',
         resolution: 'provinces',
          colorAxis: {
-          values:[m, 10*m, 20*m, 30*m, 40*m, 50*m, 60*m,90*m,120*m,150*m,180*m,210*m,240*m], colors:['#227700','#006600','#009900','#00cc00','#73e600','#99ff33','#ccff33', '#ffff66','#ffd966','#ffb366','#ff8c66','#ff6666','#ff0000'],
+          values:[m, 10*m, 20*m, 30*m, 40*m, 50*m, 60*m,90*m,120*m,150*m,180*m,210*m,240*m], colors:['#2B491F','#256425','#3B9B3B','#4BCC4B','#90E63A','#B7FF6E','#E0FF80', '#ffff66','#ffd966','#ffb366','#ff8c66','#ff6666','#ff0000'],
                  
                 }
           
