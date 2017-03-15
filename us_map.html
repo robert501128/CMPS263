@@ -81,12 +81,12 @@
       isEmit=1;
       function drawRegionsMap() {
         isEmit=1;
-        var table = [['State', 'CO2 Emission']];
+        var table = [['State', 'CO2 Emission', {type: 'string', role: 'tooltip'}]];
         for(i = 0; i < stateList.length; i++){
           var emission = stateEmission[i]['transportation'];
           emission += 4587*0.00045359237*numEV/100 * 260350 * 1000 * stateEmission[i]['electrical power']/totalPowerPlant;
           emission -= 11435*0.00045359237*numEV/100 * 260350 * 1000 * stateEmission[i]['transportation']/totalTransport;
-          table.push([stateList[i], emission]);
+          table.push([stateList[i], emission, emission.toString()+' metric tons']);
         }
         var data = google.visualization.arrayToDataTable(table);
         var m = 1000000;
@@ -95,10 +95,7 @@
           backgroundColor: '#81d4fa',
         //displayMode: 'regions',
         resolution: 'provinces',
-         colorAxis: {
-          values:[5*m, 10*m, 15*m, 20*m, 25*m, 30*m, 40*m, 50*m, 60*m,90*m,120*m,150*m,180*m,210*m,240*m], colors:['#006600','#009900','#33cc33','#00cc00','#73e600','#99ff33','#ccff33', '#dfff80','#ffff66','#ffd966','#ffcc66','#ffb366','#ff8533','#ff661a','#ff3300'],
-                 
-                }         
+         colorAxis: {colors: ['green','yellow', 'red'], minValue: 500000,maxValue:  100000000} 
         };
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
         chart.draw(data, options);
@@ -106,19 +103,19 @@
 
       function drawCostMap(){
         isEmit=0;
-        var table = [['State','CO2 Cost']];
+        var table = [['State','CO2 Cost', {type: 'string', role: 'tooltip'}]];
         for(i = 0; i < stateList.length; i++){          
           var emission = 11435*0.00045359237*numEV/100*260350 * 1000 * stateEmission[i]['transportation']/totalTransport - 
           4587*0.00045359237*numEV/100 * 260350 * 1000 * stateEmission[i]['electrical power']/totalPowerPlant;
           var cost = 23.02* emission * 1.10231131092;
-          table.push([stateList[i], Math.floor(cost)]);
+          table.push([stateList[i], Math.floor(cost), Math.floor(cost).toString()+' US dollars']);
         }
         var data = google.visualization.arrayToDataTable(table);
           var options = {
           region: 'US',
           backgroundColor: '#81d4fa',
           resolution: 'provinces',
-          colorAxis: {colors: ['white', 'blue'], minValue: -300000000,maxValue:  3000000000} 
+          colorAxis: {colors: ['red','yellow', 'green'], minValue: -300000000,maxValue:  300000000} 
         };
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
         chart.draw(data, options);
