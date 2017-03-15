@@ -23,8 +23,8 @@
     </div>
     <div class = "button">
       <ul class="nav nav-pills">
-        <li role="presentation" onclick = "showReg()"><a href="#">change EV number(metric: metric tons)</a></li>
-        <li role="presentation"  onclick = "showPic()"><a href="#">money saved by electrical vehicles(metric: US dollars)</a></li>
+          <button type="button" class="btn btn-info" onclick=showReg()>CO2 Emissions</button>
+          <button type="button" class="btn btn-info" onclick=showPic()>Money Saved</button>
       </ul>
 
     <div>
@@ -36,12 +36,11 @@
      
     </div>
     <div id = "emission_div" style = "display:">
-      <div style="color:#629FD4"><h1>change electric vehicle percentage</h1><br></div>
 
       <input type="range" min="0" max="100" value="0" onchange="showValue(this.value)" style="width:500px; margin: auto;"/>
       
       <h3><div id="range">0%</div></h3>
-      <h4>electric vehicles/total vehicles</h4>
+      <h4>Electric Vehicles/Total Vehicles</h4>
     </div>
 
     <div id = "cost_div" style="display:none; color:#629FD4"><h1></h1><br>
