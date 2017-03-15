@@ -115,7 +115,7 @@
         for(i = 0; i < stateList.length; i++){          
           var emission = 11435*0.00045359237*numEV/100*260350 * 1000 * stateEmission[i]['transportation']/totalTransport - 
           4587*0.00045359237*numEV/100 * 260350 * 1000 * stateEmission[i]['electrical power']/totalPowerPlant;
-          var cost = 23.02* emission * 1.10231131092;
+          var cost = 22.36* emission * 1.10231131092;
           table.push([stateList[i], cost/1000000, (cost/1000000).toFixed(2).toString()+'M US dollars']);
         }
         var data = google.visualization.arrayToDataTable(table);
