@@ -93,7 +93,7 @@
           emission += 4587*0.00045359237*numEV/100 * 260350 * 1000 * stateEmission[i]['electrical power']/totalPowerPlant;
           emission -= 11435*0.00045359237*numEV/100 * 260350 * 1000 * stateEmission[i]['transportation']/totalTransport;
           totalEmission += emission;
-          table.push([stateList[i], emission/1000000, (emission/1000000).toFixed(2).toString()+'M metric tons']);
+          //table.push([stateList[i], emission/1000000, (emission/1000000).toFixed(2).toString()+'M metric tons']);
         }
         var data = google.visualization.arrayToDataTable(table);
         table.push(['total', totalEmission/1000000, (totalEmission/1000000).toFixed(2).toString()+'M metric tons']);
@@ -138,11 +138,11 @@
 
             var options = {
               bars: 'horizontal',
-              axes: {
-                y: {
-                  0: {side: 'right'}
-                }
-              },
+//               axes: {
+//                 y: {
+//                   0: {side: 'right'}
+//                 }
+//               },
               legend: { position: 'none' , numberFormat:'.## million'},
               annotations: {
                 boxStyle: {
