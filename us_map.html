@@ -70,7 +70,6 @@
         else{
           drawCostMap();
         }
-
       }
       google.charts.load('current', {'packages':['geochart', 'corechart', 'bar']});
       google.charts.setOnLoadCallback(drawRegionsMap);
@@ -93,10 +92,10 @@
           emission += 4587*0.00045359237*numEV/100 * 260350 * 1000 * stateEmission[i]['electrical power']/totalPowerPlant;
           emission -= 11435*0.00045359237*numEV/100 * 260350 * 1000 * stateEmission[i]['transportation']/totalTransport;
           totalEmission += emission;
-          //table.push([stateList[i], emission/1000000, (emission/1000000).toFixed(2).toString()+'M metric tons']);
+          table.push([stateList[i], emission/1000000, (emission/1000000).toFixed(2).toString()+'M metric tons']);
         }
         var data = google.visualization.arrayToDataTable(table);
-        table.push(['total', totalEmission/1000000, (totalEmission/1000000).toFixed(2).toString()+'M metric tons']);
+        //table.push(['total', totalEmission/1000000, (totalEmission/1000000).toFixed(2).toString()+'M metric tons']);
         var m = 1000000;
         var options = {
           region: 'US',
@@ -110,7 +109,6 @@
         chart.draw(data, options);
         drawRightY(table);
       }
-
       function drawCostMap(){
         isEmit=0;
         var table = [['State','CO2 Cost', {type: 'string', role: 'tooltip'}]];
@@ -131,18 +129,10 @@
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
         chart.draw(data, options);
       }
-
       function drawRightY(table) {
-
             var data = google.visualization.arrayToDataTable(table);
-
             var options = {
               bars: 'horizontal',
-//               axes: {
-//                 y: {
-//                   0: {side: 'right'}
-//                 }
-//               },
               legend: { position: 'none' , numberFormat:'.## million'},
               annotations: {
                 boxStyle: {
@@ -158,8 +148,8 @@
                 }
               },
               hAxis: {
-                minValue: 0.5,
-                maxValue: 2000.0
+                minValue: 0,
+                ticks: [{v:0, f:'0'}, {v:50, f:'50'}, {v:100, f:'100'}, {v:150, f:'150'}, {v:200, f:'200'}]
               }
             };
             var material = new google.charts.Bar(document.getElementById('chart_div'));
@@ -169,3 +159,4 @@
 
 </html>
 
+Contact GitHub API Training Shop Blog About
